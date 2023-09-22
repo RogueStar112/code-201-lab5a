@@ -119,7 +119,7 @@ function sumArray(sumArr) {
 
   let total = 0;
   for (let i = 0; i < sumArr.length; i++) {
-    total = sum(total, testArray[i])[0];
+    total = sum(total, sumArr[i])[0];
   }
 
   let message = `${sumArrayString} was passed in as an array of numbers, and ${total} is their sum.`;
@@ -154,7 +154,7 @@ function multiplyArray(multArr) {
   // total is 1 so that multiplication can start. You cant multiply starting 0.
   let total = 1;
   for (let i = 0; i < multArr.length; i++) {
-    total = multiply(total, testArray[i])[0];
+    total = multiply(total, multArr[i])[0];
   }
 
   let message = `The numbers ${multiplyArrayString} have a product of ${total}.`;
@@ -173,7 +173,10 @@ testMultiplyArray(testArray);
 
 /////////////////////////////////////
 /* STRETCH GOAL: Problem 6
-Write a function called multiplyAnyArray() that takes an array of numbers of any length as its argument and returns an array whose first element is the product of those numbers, and the second element is a string that EXACTLY follows this example and concatenates a message using the arguments that were passed into the function:
+Write a function called multiplyAnyArray() that takes an array of numbers of any length
+as its argument and returns an array whose first element is the product of those numbers,
+and the second element is a string that EXACTLY follows this example and concatenates a message 
+using the arguments that were passed into the function:
 
 "The numbers 1,2,3,4,5 have a product of 120."
 
@@ -187,10 +190,21 @@ Test this function by hand in the console to get it working, and when you think 
 let testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) {
-  //eslint-disable-line
+  let multiplyArrayString = dynamicArray.toString();
+
+  // total is 1 so that multiplication can start. You cant multiply starting 0.
+  let total = 1;
+  for (let i = 0; i < dynamicArray.length; i++) {
+    total = multiply(total, dynamicArray[i])[0];
+  }
+
+  let message = `The numbers ${multiplyArrayString} have a product of ${total}.`;
+
+  // console.log([total, message])
+  return [total, message];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
