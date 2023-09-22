@@ -119,7 +119,7 @@ function sumArray(sumArr) {
 
   let total = 0;
   for (let i = 0; i < sumArr.length; i++) {
-    total += sum(0, testArray[i])[0];
+    total = sum(total, testArray[i])[0];
   }
 
   let message = `${sumArrayString} was passed in as an array of numbers, and ${total} is their sum.`;
@@ -154,7 +154,7 @@ function multiplyArray(multArr) {
   // total is 1 so that multiplication can start. You cant multiply starting 0.
   let total = 1;
   for (let i = 0; i < multArr.length; i++) {
-    total *= multiply(1, testArray[i])[0];
+    total = multiply(total, testArray[i])[0];
   }
 
   let message = `The numbers ${multiplyArrayString} have a product of ${total}.`;
